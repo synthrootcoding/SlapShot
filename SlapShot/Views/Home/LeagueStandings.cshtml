@@ -4,25 +4,29 @@
     ViewData["Title"] = "LeagueStandings";
 }
 
-<h1>@Model.response[0][0].league.name - @Model.response[0][0].league.season</h1>
+<h1>@Model.response[0][0].league.name / @Model.response[0][0].league.season</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                1
             </th>
             <th>
+                2
             </th>
             <th>
+                3
             </th>
             <th>
+                4
             </th>
             <th>
+                5
             </th>
-            <th></th>
+            <th>
+                6
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -44,9 +48,6 @@
                 @Html.DisplayFor(modelItem => item.description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
