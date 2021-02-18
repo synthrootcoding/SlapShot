@@ -1,0 +1,57 @@
+﻿@model LeagueGames
+
+@{
+    ViewData["Title"] = "LeagueGames";
+}
+
+<h1>@Model.response[0].league.name / @Model.response[0].league.season</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                Week
+            </th>
+            <th>
+
+            </th>
+            <th>
+                Home Team [Score]
+            </th>
+            <th>
+                Away Team [Score]
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.response)
+        {
+            <tr>
+                <td>
+                    @item.date.ToShortDateString()
+                </td>
+                <td>
+                    @item.date.TimeOfDay
+                </td>
+                <td>
+                    @item.week
+                </td>
+                <td>
+                    @item.status._short
+                </td>
+                <td>
+                    <img src=@item.teams.home.logo height="25"/>@item.teams.home.name [@item.scores.home]
+                </td>
+                <td>
+                    <img src=@item.teams.away.logo height="25"/>@item.teams.away.name [@item.scores.away]
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

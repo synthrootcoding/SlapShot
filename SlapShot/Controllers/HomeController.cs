@@ -25,8 +25,14 @@ namespace SlapShot.Controllers
 
         public IActionResult LeagueStandings()
         {
-            LeagueStandings standings = HockeyDAL.GetLeagueStandings();
+            var standings = HockeyDAL.GetLeagueStandings();
             return View(standings);
+        }
+
+        public IActionResult LeagueGames()
+        {
+            var games = HockeyDAL.GetLeagueGames();
+            return View(games);
         }
 
         public IActionResult Privacy()

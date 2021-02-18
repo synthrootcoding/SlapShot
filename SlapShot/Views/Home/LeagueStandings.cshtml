@@ -10,22 +10,43 @@
     <thead>
         <tr>
             <th>
-                1
+                Group
             </th>
             <th>
-                2
+                Position
             </th>
             <th>
-                3
+                Description
             </th>
             <th>
-                4
+                Logo
             </th>
             <th>
-                5
+                Team
             </th>
             <th>
-                6
+                Points
+            </th>
+            <th>
+                Form
+            </th>
+            <th>
+                Played
+            </th>
+            <th>
+                Win
+            </th>
+            <th>
+                Win-OT
+            </th>
+            <th>
+                Lose
+            </th>
+            <th>
+                Lose-OT
+            </th>
+            <th>
+                Goals (+/-)
             </th>
         </tr>
     </thead>
@@ -33,21 +54,43 @@
 @foreach (var item in Model.response[0]) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.position)
+                @item.group.name
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.stage)
+                @item.position
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.points)
+                @item.description
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.form)
+                <img src="@item.team.logo" width="25"/>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.description)
+                @item.team.name
             </td>
             <td>
+                @item.points
+            </td>
+            <td>
+                @item.form
+            </td>
+            <td>
+                @item.games.played
+            </td>
+            <td>
+                @item.games.win.total
+            </td>
+            <td>
+                @item.games.win_overtime.total
+            </td>
+            <td>
+                @item.games.lose.total
+            </td>
+            <td>
+                @item.games.lose_overtime.total
+            </td>
+            <td>
+                (@item.goals._for / @item.goals.against)
             </td>
         </tr>
 }
